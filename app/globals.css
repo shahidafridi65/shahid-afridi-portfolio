@@ -1,26 +1,105 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--color-primary: #00e0ff;
+	--color-secondary: #8b5cf6;
+	--color-accent: #f97316;
+	--color-glow: rgba(0, 224, 255, 0.45);
+
+	/* BACKGROUND */
+	--bg-900: #0d0d0f;
+	--bg-800: #1a1a1d;
+	--bg-700: #232326;
+	--glass: rgba(255, 255, 255, 0.04);
+
+	/* TEXT */
+	--text: #e4e7ec;
+	--muted: #9ca3af;
+
+	/* SHADOWS & BORDERS */
+	--border: rgba(255, 255, 255, 0.08);
+	--shadow-glow: 0 0 20px rgba(0, 224, 255, 0.25);
+
+	--font-primary: var(--font-inter), sans-serif;
+	--font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Font families */
+:root {
+	--font-primary: 'Inter', sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer base {
+	html {
+		font-family: var(--font-primary);
+	}
+
+	body {
+		background-color: var(--bg-900);
+		color: var(--text);
+		@apply antialiased;
+	}
+
+	code,
+	pre {
+		font-family: var(--font-mono);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-primary);
+		font-weight: 600;
+		line-height: 1.2;
+	}
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom glass effect */
+.card-glass {
+	background: var(--glass);
+	backdrop-filter: blur(10px);
+	border: 1px solid var(--border);
+}
+
+/* Neon text effect */
+.neon-text {
+	text-shadow: 0 0 10px var(--color-glow),
+		0 0 20px var(--color-glow),
+		0 0 40px var(--color-primary);
+}
+
+/* Subtle glow for containers */
+.glow-container {
+	box-shadow: 0 0 30px rgba(0, 224, 255, 0.1),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.btn-neon {
+	@apply inline-flex items-center justify-center px-5 py-2 rounded-lg font-semibold transition-all duration-300;
+	background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+	color: #fff;
+	border: none;
+	box-shadow: 0 0 12px var(--color-glow),
+		inset 0 0 8px rgba(255, 255, 255, 0.05);
+	font-family: var(--font-primary);
+}
+
+.btn-neon:hover {
+	transform: translateY(-2px) scale(1.02);
+	box-shadow: 0 0 20px var(--color-glow),
+		0 0 30px rgba(0, 224, 255, 0.2);
+}
+
+.glow-container-hover {
+	box-shadow: 0 0 40px rgba(0, 224, 255, 0.15),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+	transform: translateY(-2px);
 }
