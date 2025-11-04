@@ -191,13 +191,15 @@ export default function AboutSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.7 }}
             >
-              <motion.button
-                className="btn-neon text-sm md:text-base"
+              <motion.a
+                href="/Shahid_FullStack_Engineer.pdf"
+                download="Shahid_Afridi_FullStack_Engineer.pdf"
+                className="btn-neon text-sm md:text-base inline-flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Download Resume
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
         </motion.div>

@@ -38,6 +38,7 @@ export default function RootLayout({
       <head>
         <title>Shahid Afridi - Full Stack Engineer</title>
         <meta name="description" content="Full Stack Engineer & AI/ML Specialist" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body className="font-sans theme-transition">
         <ThemeProvider>

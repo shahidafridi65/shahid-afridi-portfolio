@@ -1,19 +1,10 @@
 import AboutSection from "@/components/AboutSection";
+import BlogSection from "@/components/BlogSection";
+import ContactSection from "@/components/ContactSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 
-
-function ProjectsSection() {
-  return <section id="projects" className="min-h-screen pt-20 px-6">Projects Section</section>;
-}
-
-function BlogSection() {
-  return <section id="blog" className="min-h-screen pt-20 px-6">Blog Section</section>;
-}
-
-function ContactSection() {
-  return <section id="contact" className="min-h-screen pt-20 px-6">Contact Section</section>;
-}
 
 export default function Home() {
   return (
