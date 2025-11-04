@@ -1,4 +1,3 @@
-// components/ContactSection.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -8,7 +7,7 @@ import { MapPin, Phone, Mail, Send, User, MessageCircle } from "lucide-react";
 
 export default function ContactSection() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-10% 0px -10% 0px" });
+    const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
 
     const [formData, setFormData] = useState({
         name: '',
@@ -193,7 +192,7 @@ export default function ContactSection() {
                 <motion.div
                     ref={ref}
                     initial={{ opacity: 0, y: 50 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     className="text-center mb-12 md:mb-16"
                 >
@@ -210,60 +209,48 @@ export default function ContactSection() {
                     {/* Left Side - Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="space-y-6"
+                        className="flex items-center justify-center"
                     >
-                        <div className="card-glass p-6 md:p-8 rounded-2xl glow-container">
-                            <h3 className="text-2xl font-bold text-[color:var(--text)] mb-6 flex items-center gap-3">
-                                <div className="w-10 h-10 bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-secondary)] rounded-lg flex items-center justify-center">
-                                    <MessageCircle className="w-5 h-5 text-white" />
+                        <div className="p-6 rounded-2xl w-full h-full min-h-[500px] flex items-center justify-center">
+                            <div className="relative w-full h-full max-w-md max-h-[400px] rounded-2xl overflow-hidden">
+                                <img
+                                    src="/contact-image.png" 
+                                    alt="Contact Shahid - Let's work together"
+                                    className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-500"
+                                    onError={(e) => {
+                                        e.currentTarget.style.display = 'none';
+                                        const parent = e.currentTarget.parentElement;
+                                        if (parent) {
+                                            parent.innerHTML = `
+                                <div class="w-full h-full bg-gradient-to-br from-[color:var(--color-primary)]/20 to-[color:var(--color-secondary)]/20 rounded-2xl flex flex-col items-center justify-center p-8 text-center">
+                                    <div class="w-32 h-32 bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-secondary)] rounded-full flex items-center justify-center mb-6">
+                                        <MessageCircle class="w-16 h-16 text-white" />
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-[color:var(--text)] text-center mb-2">
+                                        Let's Connect!
+                                    </h3>
+                                    <p class="text-[color:var(--muted)] text-center mb-4">
+                                        Based in India
+                                    </p>
+                                    <div class="flex flex-col gap-3 text-center">
+                                        <p class="text-[color:var(--color-primary)] font-medium">shahidafrid825@gmail.com</p>
+                                        <p class="text-[color:var(--muted)] text-sm">Send me an email anytime</p>
+                                    </div>
                                 </div>
-                                Contact Info
-                            </h3>
-
-                            <div className="space-y-6">
-                                {contactInfo.map((info, index) => (
-                                    <motion.div
-                                        key={info.label}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                                        transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                                        className="flex items-start gap-4 p-4 rounded-xl bg-[color:var(--bg-800)]/50 hover:bg-[color:var(--bg-700)] transition-all duration-300 group cursor-pointer"
-                                        whileHover={{ scale: 1.02 }}
-                                    >
-                                        <div className="w-12 h-12 bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-secondary)] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                            <info.icon className="w-6 h-6 text-white" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-[color:var(--text)] mb-1">{info.label}</h4>
-                                            <p className="text-[color:var(--color-primary)] font-medium text-lg mb-1">{info.value}</p>
-                                            <p className="text-[color:var(--muted)] text-sm">{info.description}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
+                            `;
+                                        }
+                                    }}
+                                />
                             </div>
-
-                            {/* Quick Email Button */}
-                            <motion.a
-                                href="mailto:shahidafrid825@gmail.com"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                                transition={{ duration: 0.6, delay: 0.6 }}
-                                className="w-full mt-6 btn-neon inline-flex items-center justify-center gap-2"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                <Mail className="w-5 h-5" />
-                                Send Quick Email
-                            </motion.a>
                         </div>
                     </motion.div>
 
                     {/* Right Side - Contact Form */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="card-glass p-6 md:p-8 rounded-2xl glow-container"
                     >
@@ -291,7 +278,7 @@ export default function ContactSection() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
-                                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.6, delay: 0.5 }}
                                     >
                                         <label className="block text-sm font-medium text-[color:var(--muted)] mb-2">
@@ -313,7 +300,7 @@ export default function ContactSection() {
 
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
-                                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.6, delay: 0.6 }}
                                     >
                                         <label className="block text-sm font-medium text-[color:var(--muted)] mb-2">
@@ -337,7 +324,7 @@ export default function ContactSection() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
-                                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.6, delay: 0.7 }}
                                     >
                                         <label className="block text-sm font-medium text-[color:var(--muted)] mb-2">
@@ -358,7 +345,7 @@ export default function ContactSection() {
 
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
-                                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.6, delay: 0.8 }}
                                     >
                                         <label className="block text-sm font-medium text-[color:var(--muted)] mb-2">
@@ -378,7 +365,7 @@ export default function ContactSection() {
 
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
-                                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: 0.9 }}
                                 >
                                     <label className="block text-sm font-medium text-[color:var(--muted)] mb-2">
@@ -399,7 +386,7 @@ export default function ContactSection() {
                                     type="submit"
                                     disabled={isSubmitting}
                                     initial={{ opacity: 0, y: 20 }}
-                                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: 1.0 }}
                                     className="w-full btn-neon py-4 text-lg font-semibold inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                     whileHover={!isSubmitting ? { scale: 1.02 } : {}}

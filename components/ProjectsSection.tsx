@@ -57,8 +57,8 @@ const ProjectCard = ({ project, position = 0, onClick }: { project: any; positio
 	return (
 		<motion.div
 			className={`flex flex-col relative rounded-xl p-6 transition-all duration-300 select-none cursor-pointer ${isActive
-				? 'w-[450px] min-h-[550px] bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl scale-100 z-30 border border-gray-700'
-				: 'w-[380px] min-h-[500px] bg-gray-800 shadow-lg scale-90 opacity-70 z-20 border border-gray-600'
+				? 'w-[320px] sm:w-[380px] md:w-[450px] min-h-[550px] bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl scale-100 z-30 border border-gray-700 mx-2 sm:mx-4'
+				: 'w-[280px] sm:w-[320px] md:w-[380px] min-h-[500px] bg-gray-800 shadow-lg scale-90 opacity-70 z-20 border border-gray-600 mx-2 sm:mx-4'
 				}`}
 			whileHover={!isActive ? { scale: 0.95, opacity: 0.8 } : {}}
 			onClick={onClick}
@@ -66,7 +66,6 @@ const ProjectCard = ({ project, position = 0, onClick }: { project: any; positio
 				transformStyle: 'preserve-3d',
 			}}
 		>
-			{/* Project Image/Logo */}
 			{/* Project Image/Logo */}
 			<div className="relative h-52 mb-6 rounded-lg overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-600/20 border border-gray-700 flex items-center justify-center">
 				{project.image ? (
@@ -295,8 +294,7 @@ export default function ProjectsSection() {
 	const visibleProjects = getVisibleProjects();
 
 	return (
-		<section id="projects" className="min-h-screen py-20 px-4 sm:px-6 bg-gray-900 relative overflow-hidden">
-			{/* Background Animation */}
+		<section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 relative overflow-hidden">
 			{/* Background Animation */}
 			<div className="absolute inset-0">
 				<div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
@@ -344,7 +342,7 @@ export default function ProjectsSection() {
 					initial={{ opacity: 0, y: 50 }}
 					animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
 					transition={{ duration: 0.8 }}
-					className="text-center flex flex-col items-center justify-center relative z-20"
+					className="text-center flex flex-col items-center justify-center relative z-20 mb-24"
 					style={{
 						minHeight: '16rem'
 					}}
@@ -363,10 +361,10 @@ export default function ProjectsSection() {
 				</motion.div>
 
 
-				<div className="relative h-[650px] flex items-center justify-center">
+				<div className="relative h-[650px] flex items-center justify-center w-full">
 					<div
 						ref={carouselRef}
-						className="flex items-center justify-center"
+						className="flex items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
 						onMouseDown={handleDragStart}
 						onMouseMove={handleDragMove}
 						onMouseUp={handleDragEnd}
@@ -382,7 +380,7 @@ export default function ProjectsSection() {
 								className={`${position === 0 ? 'z-30' : 'z-20'}`}
 								initial={false}
 								animate={{
-									x: position * 100,
+									x: position * 80,
 									scale: position === 0 ? 1 : 0.85,
 									opacity: position === 0 ? 1 : 0.6,
 									rotateY: position * 10,

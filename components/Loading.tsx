@@ -14,7 +14,7 @@ export default function Loading() {
           className="mb-8"
         >
           <h1 className="text-4xl md:text-6xl font-bold">
-            <span className="text-[color:var(--text)]">Shahid</span>
+            <span className="text-[color:var(--text)]">Shahid Afridi</span>
             <span className="text-[color:var(--color-primary)]">.</span>
           </h1>
         </motion.div>
