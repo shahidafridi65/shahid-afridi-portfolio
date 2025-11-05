@@ -57,9 +57,8 @@ const ProjectCard = ({ project, position = 0, onClick }: { project: any; positio
 	return (
 		<motion.div
 			className={`flex flex-col relative rounded-xl p-6 transition-all duration-300 select-none cursor-pointer ${isActive
-				? 'w-[320px] sm:w-[380px] md:w-[450px] min-h-[550px] bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl scale-100 z-30 border border-gray-700 mx-2 sm:mx-4'
-				: 'w-[280px] sm:w-[320px] md:w-[380px] min-h-[500px] bg-gray-800 shadow-lg scale-90 opacity-70 z-20 border border-gray-600 mx-2 sm:mx-4'
-				}`}
+				? 'w-[320px] sm:w-[380px] md:w-[450px] min-h-[550px] bg-gradient-to-br from-[var(--bg-800)] to-[var(--bg-700)] shadow-2xl scale-100 z-30 border border-[var(--border)] mx-2 sm:mx-4'
+				: 'w-[280px] sm:w-[320px] md:w-[380px] min-h-[500px] bg-[var(--bg-800)] shadow-lg scale-90 opacity-70 z-20 border border-[var(--border)] mx-2 sm:mx-4'}`}
 			whileHover={!isActive ? { scale: 0.95, opacity: 0.8 } : {}}
 			onClick={onClick}
 			style={{
@@ -111,10 +110,10 @@ const ProjectCard = ({ project, position = 0, onClick }: { project: any; positio
 			{/* Project Content */}
 			<div className="space-y-4 flex-1">
 				<div>
-					<h3 className={`font-bold text-white mb-3 ${isActive ? 'text-2xl' : 'text-xl'}`}>
+					<h3 className={`font-bold text-[var(--text)] mb-3 ${isActive ? 'text-2xl' : 'text-xl'}`}>
 						{project.title}
 					</h3>
-					<p className={`text-gray-400 leading-relaxed ${isActive ? 'text-base' : 'text-sm'}`}>
+					<p className={`text-[var(--muted)] leading-relaxed ${isActive ? 'text-base' : 'text-sm'}`}>
 						{isActive ? project.longDescription : project.description}
 					</p>
 				</div>
@@ -124,8 +123,7 @@ const ProjectCard = ({ project, position = 0, onClick }: { project: any; positio
 					{project.technologies.slice(0, isActive ? project.technologies.length : 3).map((tech: string, index: number) => (
 						<span
 							key={index}
-							className={`px-3 py-1 bg-gray-700 text-blue-400 rounded-full border border-gray-600 font-medium ${isActive ? 'text-sm' : 'text-xs'
-								}`}
+							className={`px-3 py-1 bg-[var(--bg-700)] text-blue-400 rounded-full border border-[var(--border)] font-medium ${isActive ? 'text-sm' : 'text-xs'}`}
 						>
 							{tech}
 						</span>
@@ -151,7 +149,7 @@ const ProjectCard = ({ project, position = 0, onClick }: { project: any; positio
 							rel="noopener noreferrer"
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
-							className="flex items-center gap-2 px-4 py-3 bg-gray-700 hover:bg-blue-600 text-gray-300 hover:text-white rounded-lg transition-all duration-300 font-medium flex-1 justify-center"
+							className="flex items-center gap-2 px-4 py-3 bg-[var(--bg-700)] hover:bg-blue-600 text-[var(--muted)] hover:text-white rounded-lg transition-all duration-300 font-medium flex-1 justify-center"
 						>
 							{project.repoType === 'github' ? (
 								<Github className="w-5 h-5" />
@@ -194,7 +192,7 @@ const ProjectCard = ({ project, position = 0, onClick }: { project: any; positio
 						initial={{ scale: 0 }}
 						animate={{ scale: 1 }}
 						transition={{ delay: 0.2 }}
-						className="text-white text-sm font-semibold bg-black bg-opacity-50 px-4 py-2 rounded-lg opacity-0 hover:opacity-100 transition-opacity"
+						className="text-[var(--text)] text-sm font-semibold bg-[var(--bg-900)] bg-opacity-70 px-4 py-2 rounded-lg opacity-0 hover:opacity-100 transition-opacity"
 					>
 						Click to view
 					</motion.div>
@@ -294,15 +292,15 @@ export default function ProjectsSection() {
 	const visibleProjects = getVisibleProjects();
 
 	return (
-		<section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 relative overflow-hidden">
+		<section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-[var(--bg-900)] relative overflow-hidden">
 			{/* Background Animation */}
 			<div className="absolute inset-0">
-				<div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+				<div className="absolute inset-0 bg-gradient-to-br from-[var(--bg-900)] via-[var(--bg-800)] to-[var(--bg-900)]"></div>
 
 				{/* Heartbeat Circle Animation with dynamic sizing */}
 				<div className="absolute top-44 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 					<motion.div
-						className="relative rounded-full bg-gradient-to-r from-blue-500 to-purple-600"
+						className="relative rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"
 						style={{
 							width: circleSize,
 							height: circleSize,
@@ -318,7 +316,7 @@ export default function ProjectsSection() {
 						}}
 					>
 						<motion.div
-							className="absolute inset-0 border-4 border-blue-500 rounded-full"
+							className="absolute inset-0 border-4 border-[var(--color-primary)] rounded-full"
 							style={{
 								opacity: circleOpacity
 							}}
@@ -348,14 +346,14 @@ export default function ProjectsSection() {
 					}}
 				>
 					<motion.h2
-						className="font-bold mb-4 text-white"
+						className="font-bold mb-4 text-[var(--text)]"
 						style={{
 							fontSize: titleFontSize
 						}}
 					>
 						PROJECTS
 					</motion.h2>
-					<p className="text-gray-400 text-lg md:text-xl max-w-2xl">
+					<p className="text-[var(--muted)] text-lg md:text-xl max-w-2xl">
 						A collection of my recent work and personal projects
 					</p>
 				</motion.div>
@@ -413,7 +411,7 @@ export default function ProjectsSection() {
 							onClick={() => goToSlide(index)}
 							className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
 								? 'bg-blue-500 scale-125'
-								: 'bg-gray-700 hover:bg-gray-500'
+								: 'bg-[var(--bg-700)] hover:bg-[var(--muted)]'
 								}`}
 						/>
 					))}
