@@ -41,6 +41,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#0066cc" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        <title>Shahid Afridi - Full Stack Engineer & AI/ML Specialist</title>
+        <meta name="description" content="Full Stack Engineer specializing in React, Next.js, Python, and AI/ML. Building scalable web applications and enterprise solutions." />
       </head>
       <body className="font-sans theme-transition">
         <ThemeProvider>
