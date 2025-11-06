@@ -6,30 +6,30 @@ import Navigation from "@/components/Navigation";
 import Loading from "@/components/Loading";
 
 export default function ClientLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setIsLoading(false);
-		}, 2000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
 
-		return () => clearTimeout(timer);
-	}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-	return (
-		<ThemeProvider>
-			{isLoading ? (
-				<Loading />
-			) : (
-				<>
-					<Navigation />
-					{children}
-				</>
-			)}
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <Navigation />
+          {children}
+        </>
+      )}
+    </ThemeProvider>
+  );
 }
