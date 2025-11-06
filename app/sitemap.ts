@@ -2,50 +2,37 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://shahidafridi.vercel.app'
-    const currentDate = new Date()
 
     return [
         {
             url: baseUrl,
-            lastModified: currentDate,
-            changeFrequency: 'weekly',
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
             priority: 1,
         },
         {
-            url: `${baseUrl}/#home`,
-            lastModified: currentDate,
-            changeFrequency: 'monthly',
-            priority: 0.9,
-        },
-        {
             url: `${baseUrl}/#experience`,
-            lastModified: currentDate,
-            changeFrequency: 'monthly',
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
             priority: 0.8,
         },
         {
             url: `${baseUrl}/#skills`,
-            lastModified: currentDate,
-            changeFrequency: 'monthly',
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
             priority: 0.8,
         },
         {
             url: `${baseUrl}/#projects`,
-            lastModified: currentDate,
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/#blog`,
-            lastModified: currentDate,
-            changeFrequency: 'weekly',
-            priority: 0.7,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.9,
         },
         {
             url: `${baseUrl}/#contact`,
-            lastModified: currentDate,
-            changeFrequency: 'monthly',
-            priority: 0.6,
+            lastModified: new Date(),
+            changeFrequency: 'yearly' as const,
+            priority: 0.7,
         },
     ]
 }

@@ -144,6 +144,12 @@ export default function AboutSection() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           className="w-full lg:w-2/3 card-glass p-6 md:p-8 rounded-2xl glow-container"
         >
+          {/* Add hidden SEO headings for search engines */}
+          <div className="sr-only">
+            <h1>Shahid Afridi - Full Stack Engineer & AI/ML Specialist</h1>
+            <h2>React Developer | Next.js Expert | Python Developer | AI ML Engineer</h2>
+          </div>
+
           <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[color:var(--color-primary)]" style={{ fontFamily: 'var(--font-primary)' }}>
             About Me
           </h2>
@@ -155,7 +161,7 @@ export default function AboutSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.3 }}
             >
-              <strong className="text-[color:var(--text)]">Innovative Full Stack Engineer</strong> with 1+ years of experience developing scalable web applications using <strong>React, Next.js, Python, and Node.js</strong>, specializing in end-to-end solution architecture.
+              I'm <strong className="text-[color:var(--text)]">Shahid Afridi</strong>, an innovative <strong>Full Stack Engineer and AI/ML Specialist</strong> with 1+ years of experience developing scalable web applications using <strong>React, Next.js, Python, and Node.js</strong>. I specialize in end-to-end solution architecture and modern web development.
             </motion.p>
 
             <motion.p
@@ -164,7 +170,7 @@ export default function AboutSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.4 }}
             >
-              Expertise in <strong>UI/UX development</strong> with proficiency in converting Figma designs to responsive interfaces using <strong>Tailwind CSS, Bootstrap, Material Design</strong> while adhering to web accessibility standards.
+              As a <strong>React Developer and Next.js Expert</strong>, I have extensive expertise in <strong>UI/UX development</strong> with proficiency in converting Figma designs to responsive interfaces using <strong>Tailwind CSS, Bootstrap, Material Design</strong> while adhering to web accessibility standards and best practices.
             </motion.p>
 
             <motion.p
@@ -173,7 +179,7 @@ export default function AboutSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.5 }}
             >
-              Strong backend integration skills with <strong>RESTful APIs, GraphQL, WebSockets</strong> and database management using <strong>PostgreSQL, MongoDB, Firebase</strong>.
+              My backend development skills include strong integration capabilities with <strong>RESTful APIs, GraphQL, WebSockets</strong> and comprehensive database management using <strong>PostgreSQL, MongoDB, Firebase</strong>. I build robust and scalable server-side solutions.
             </motion.p>
 
             <motion.p
@@ -182,18 +188,40 @@ export default function AboutSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.6 }}
             >
-              <strong>AI/ML Specialist</strong> with hands-on experience in <strong>Large Language Models (LLM), NLP, predictive analytics</strong> using Python, TensorFlow, scikit-learn, HuggingFace and data processing with Pandas, NumPy.
+              As an <strong>AI/ML Specialist</strong>, I have hands-on experience in <strong>Large Language Models (LLM), Natural Language Processing (NLP), predictive analytics</strong> using Python, TensorFlow, scikit-learn, HuggingFace and data processing with Pandas, NumPy for intelligent application development.
             </motion.p>
+
+            {/* Add SEO-rich skills section */}
+            <motion.div
+              className="pt-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.7 }}
+            >
+              <div className="sr-only">
+                <h3>Technical Skills & Expertise</h3>
+                <p>
+                  Full Stack Development: React.js, Next.js, Node.js, JavaScript, TypeScript, Python,
+                  HTML5, CSS3, Tailwind CSS, Bootstrap, Material-UI, RESTful APIs, GraphQL, WebSockets,
+                  PostgreSQL, MongoDB, Firebase, Git, Docker, AWS, Vercel
+                </p>
+                <p>
+                  AI/ML Technologies: Machine Learning, Deep Learning, Natural Language Processing,
+                  Large Language Models, TensorFlow, PyTorch, scikit-learn, HuggingFace, Pandas, NumPy,
+                  Data Analysis, Predictive Analytics
+                </p>
+              </div>
+            </motion.div>
 
             <motion.div
               className="pt-3 md:pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.7 }}
+              transition={{ delay: 0.8 }}
             >
               <motion.a
                 href="/Shahid_FullStack_Engineer.pdf"
-                download="Shahid_Afridi_FullStack_Engineer.pdf"
+                download="Shahid_Afridi_FullStack_Engineer_Resume.pdf"
                 className="btn-neon text-sm md:text-base inline-flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

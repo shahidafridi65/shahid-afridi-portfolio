@@ -5,10 +5,14 @@ export async function GET() {
 Allow: /
 Disallow: /api/
 
-# Multiple sitemap references
+# Force recrawl
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Additional sitemaps
 Sitemap: https://shahidafridi.vercel.app/sitemap.xml
-Sitemap: https://shahidafridi.vercel.app/sitemap
-Sitemap: https://shahidafridi.vercel.app/api/sitemap`;
+Sitemap: https://shahidafridi.vercel.app/sitemap`;
 
     return new NextResponse(robots, {
         status: 200,
